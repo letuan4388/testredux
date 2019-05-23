@@ -1,23 +1,23 @@
-import React, { Component } from 'react'
-import HelloWorld from './HelloWorld'
-import ButtonGroup from './ButtonGroup'
-import { connect } from 'react-redux'
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import WrappedNormalLoginForm from "./Login/Login";
 
 class App extends Component {
   render() {
     return (
       <div>
-        <HelloWorld key={1} tech={ this.props.tech } />
-        <ButtonGroup key={2} technologies={["React", "Elm", "React-redux"]} />
+        <h1>Username: {this.props.userInfo}</h1>
+        <WrappedNormalLoginForm />
       </div>
-    )
+    );
   }
 }
 
 function mapStateToProps(state) {
   return {
-    tech: state.tech
-  }
+    tech: state.tech,
+    userInfo: state.userInfo
+  };
 }
 
 export default connect(mapStateToProps)(App);

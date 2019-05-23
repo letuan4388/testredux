@@ -1,10 +1,18 @@
 export const reducer = (state, action) => {
   switch (action.type) {
     case "SET_TECHNOLOGY":
-      state.tech = action.tech;
       console.log(action);
-      return state;
+      return {
+        ...state,
+        tech: action.tech
+      };
+    case "SET_USERNAME":
+      console.log(action);
+      return {
+        ...state,
+        userInfo: action.userInfo
+      };
     default:
       return state;
   }
-}
+};
